@@ -9,7 +9,7 @@ This repository contains my personal notes when it comes to data structures and 
 - Arrays
     - Two- and multi-dimensional arrays (matrices)
 - Accessing data (optional)
-- Sorting
+- Sorting (including stable vs. non-stable sorts)
 - Maps and sets
     - Hashing
 - Stacks

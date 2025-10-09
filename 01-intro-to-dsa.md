@@ -2,7 +2,7 @@
 
 Data structures and algorithms are used every day and you might not realize it.  For example, when you're performing a search online and you see possible queries pop up underneath as you type, like so:
 
-![alt text](search-image.png)
+![Image of a search typed mid-way with various possible results underneath](search-image.png)
 
 Those results are saved in a data structure, very likely a trie.  (You'll learn about a trie down the road.)
 
