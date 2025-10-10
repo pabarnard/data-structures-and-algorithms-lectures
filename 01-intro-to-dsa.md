@@ -65,6 +65,7 @@ FUNCTION findMinimum(inputArray) {
 }
 ```
 - Use descriptive names for variables and functions and CAPITALIZE control keywords for readability.
+- Think like a computer!  In other words, imagine how the computer examines and processes data compared to how we humans do so.
 
 ### Think about complexity early
 - Estimate time complexity by counting dominant operations and how they scale with input size.  For example, a loop is more often than not in $O(N)$ time.  Some nested loops might be $O(N^2)$ or higher, but it'll depend on the code.

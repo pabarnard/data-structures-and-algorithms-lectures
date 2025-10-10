@@ -1,6 +1,6 @@
 # Big O Notation
 
-**Big O notation** is used to denote how an algorithm scales as the size of an input - or a series of inputs - increases.  For example, if the size of an input array increases, how does it affect the performance of an algorithm in terms of space and time?
+**Big O notation** is used to denote how an algorithm scales as the size of an input - or a series of inputs - increases.  For example, if the size of an input array increases, how does it affect the performance of an algorithm in terms of space and time?  Very often in interviews you will be asked to solve problems and explain why you went with one method or another, and frequently you will have to talk about time and space complexity in the implementation of your solution to an algorithm challenge.
 
 By the time you are done with this page, you should:
 - Understand how Big O works
@@ -36,6 +36,8 @@ Here are some common time complexities, from best to worst:
 | $O(n²)$        | Quadratic        | Nested loops (e.g. bubble sort, insertion sort)                    |
 | $O(2ⁿ)$        | Exponential      | Recursive Fibonacci without memoization                            |
 | $O(n!)$        | Factorial        | Finding all arrangements of $n$ unique elements                    |
+
+Don't worry if some of terms (e.g. binary search, merge sort) do not make sense at this moment, as we will cover them as you progress through the material.
 
 To illustrate big O time complexity, here are some examples in JavaScript:
 ```js
