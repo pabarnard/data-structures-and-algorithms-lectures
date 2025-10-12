@@ -9,8 +9,13 @@ This repository contains my personal notes when it comes to data structures and 
 - Strings
 - Arrays
     - Two- and multi-dimensional arrays (matrices)
-- Accessing data (optional)
+- More on data
+    - Accessing it
+    - Immutable vs. mutable data
 - Sorting (including stable vs. non-stable sorts)
+- Linked lists
+    - Singly linked lists
+    - Double linked lists
 - Maps and sets
     - Hashing
 - Stacks
@@ -20,15 +25,11 @@ This repository contains my personal notes when it comes to data structures and 
     - Prefix sum
     - Sliding window
     - Two pointers (and more)
+    - Binary search
 - Recursion
-    - Immutable vs. mutable data
     - Backtracking 
     - Dynamic programming vs. greedy algorithms
     - Divide and conquer
-- Binary search
-- Linked lists
-    - Singly linked lists
-    - Double linked lists
 - Graphs
     - Breadth-first vs. depth-first search
 - Trees
