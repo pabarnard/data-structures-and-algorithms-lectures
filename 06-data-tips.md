@@ -115,5 +115,40 @@ thisPokemon["types"][0]["type"] // will give:
 thisPokemon["types"][0]["type"]["name"] // will give:
 "psychic" // Here's the answer, and it's a string!
 ```
-
 Know the data type you're dealing with each step of the way!  This allows you to determine the methods you can use - and how to access the data!  How do you access an item from an array?  From an object?  From an instance of a class?  Hopefully these tips will come in handy so you can deal with data much more easily than before!
+
+## Mutable vs. immutable data
+Many folks struggle with whether a variable is **mutable** vs. **immutable**.  **Mutable** data is data that can be changed after it's created, while **immutable** data is data that cannot be modified after creation.
+
+Mutable vs. immutable data plays a major role when you deal with functions and methods.  Here are some examples in JavaScript:
+```js
+const add10 = val => {
+    val += 10;
+}
+let x = 10;
+console.log(x); // 10
+add10(x);
+console.log(x); // Still 10
+```
+
+```js
+const add10ToArr = arr => {
+    arr.push(10);
+}
+let myArr = [3, 5];
+console.log(myArr); // [3, 5]
+add10ToArr(myArr);
+console.log(myArr); // [3, 5, 10]
+```
+Notice in the two examples above that when an integer is passed in and its value is changed inside the function, it says changed only within the scope of the function, and then after the function call its value is still unchanged.  But if you pass in an array and change its contents, they stay changed even after the function call is completed, and what is happening is that you're passing in a *reference* to the item in memory, and then you change its contents.  
+
+Thus usually arrays, objects, instances of classes, etc. are usually mutable in many languages, whereas more primitive types (e.g. booleans, numbers) are immutable.
+
+Here are some useful tips when it comes to which data types are mutable vs. immutable:
+- Primitive data types are usually immutable, like booleans and numbers
+- Strings in most languages are immutable
+- Objects and instances of classes are usually mutable
+
+Some languages actually allow you to specify which variables are mutable and immutable (e.g. Rust), so you have some more flexibility.
+
+Mutable data comes in handy with recursion, dynamic programming and anything that requires you to keep track of multiple items at once.  Immutable data is useful when you need it to be predictable and thread-safe.
