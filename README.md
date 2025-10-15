@@ -9,7 +9,7 @@ This repository contains my personal notes when it comes to data structures and 
 - Strings
 - Arrays
     - Two- and multi-dimensional arrays (matrices)
-- More on data
+- Data
     - Accessing it
     - Immutable vs. mutable data
 - Sorting (including stable vs. non-stable sorts)

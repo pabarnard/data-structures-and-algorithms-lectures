@@ -1,5 +1,4 @@
 # Tips for interviews
-
 When you are interviewed for a job, you will want to do your best to stand out from all the others that have applied in terms of technical skills, communication skills, attitude, and more.  This page is meant to give you some tips to help you prepare for the interview.  Some tips will be more applicable to more specific roles, and there is no single one-size-fits-all approach that fits for everyone.  So I will attempt to cover as much as I can for the most common types of roles.  **NOTE:** This does *not* cover preparing your resume (make sure your resume is tailored to the job description as best as you can and build projects applicable to the role, for instance) or networking or negotiating with an offer, all of which are very important.  This is only meant for the interview portion.
 
 There are four main parts that you'll want to be comfortable with in general:
