@@ -93,3 +93,5 @@ We will not go over how all these sorting techniques work in depth; this is for 
 | Bucket Sort     | $O(n + k)$       | $O(n + k)$        | $O(n^2)$       | $O(n + k)$         | Yes     | No        |
 
 More info can be found at https://www.bigocheatsheet.com/.
+
+You can also use VisuAlgo to view animations of most of these sorting techniques at https://visualgo.net/en/sorting.
