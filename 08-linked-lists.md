@@ -13,7 +13,23 @@ Arrays are usually in contiguous locations in memory; in other words they are ne
 Most of the time you'll solve problems with singly and circular linked lists, although doubly linked lists do pop up.
 
 ## Singly linked lists
-Talk about singly linked lists and real-life applications; do the same with other linked lists.  Add *a lot of visuals*!
+A **singly linked list** is a collection of nodes that point one way.  Visually it looks like this:
+```
+ head
+  |
+  |
+  v
+*****        *****        *****        *****        
+* 1 * -----> * 2 * -----> * 3 * -----> * 4 * -----> null
+*****  next  *****  next  *****  next  *****  next  
+```
+Each node contains data, represented by the numbers above.  From each node is a pointer, denoted "next", that points to the next node in line.  (Technically the "next" attribute points to a memory address, and then the data can be accessed there accordingly.)
+
+The singly linked list starts off with a pointer, denoted "head", that points to the very first node in the list.  The end of the list is denoted by the word "null" at the end which means that the final node points to nothing in memory.
+
+This is called a *singly* linked list because we can only travel one way - forward.
+
+Add some sample problems here!  In the future, add *a lot of visuals*!
 
 ## Doubly linked lists
 
