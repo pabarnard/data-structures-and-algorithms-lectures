@@ -15,6 +15,12 @@ Most of the time you'll solve problems with singly and circular linked lists, al
 ## Singly linked lists
 A **singly linked list** is a collection of nodes that point one way.  Visually it looks like this:
 ```
+Visual of a single node:
+********
+* Data * ----->
+********  next
+
+Visual of the entire singly linked list:
  head
   |
   |
@@ -30,6 +36,8 @@ The singly linked list starts off with a pointer, denoted "head", that points to
 Some implementations of singly linked lists have a pointer called "tail" that reference the *last* node in the list; i.e. the tail points to the node that have a next attribute of "null" (or a similar value).
 
 This is called a *singly* linked list because we can only travel one way - forward.
+
+Singly linked lists are used frequently as the basis for many other data structures, including stacks and queues.  
 
 ### Tips for solving problems
 - **Beware edge cases:** Watch out for cases like an empty list, a list with only one node.
@@ -61,12 +69,35 @@ head -> 1 -> 2 -v // return true, as the 2 node points to itself
 Add some sample problems here!  In the future, add *a lot of visuals*!
 
 ## Doubly linked lists
+A **doubly linked list** is a collection of nodes like a singly linked list.  The difference is that with a singly linked list, each node has only one pointer that references the next node in line, while in a doubly linked list each node has two pointers: one for the next node in line, and one for the *previous* node in the list.
 
+Here are visuals for one node in the doubly linked list and the entire list itself:
+```
+Visual of a single node:
+       ********
+<----- * Data * ----->
+ prev  ********  next
+
+Visual of the entire doubly linked list:
+            head
+              |
+              |
+              v
+            *****        *****        *****        *****        
+null <----- * 1 * -----> * 2 * <----- * 3 * -----> * 4 *
+            *   * <----- *   * -----> *   * <----- *   * -----> null
+            *****        *****        *****        *****        
+```
+A doubly linked list contains a pointer to the head of the list.  Some implementations also have a tail (not pictured) at the end of the list.
+
+Doubly linked lists have real-life applications: photo carousels in websites, saving operations that you can undo and redo, and navigating forwards and backwards in a web browser.  (You can alternately use two stacks here as well.)
 
 ### Tips for solving problems
+- Pretty much all the tips for singly linked lists apply here too!
 - Make sure you modify the prev and next attributes of each node so that you can travel through the list properly!
 
 ### Sample problems (arranged from easy to difficult)
+Most of the time you'll deal with singly linked list problems, but if you want to challenge yourself, you can use the same problems as those for singly linked lists, except be careful with the `prev` attribute in addition to the `next` attribute.
 
 ## Circular linked lists
 
