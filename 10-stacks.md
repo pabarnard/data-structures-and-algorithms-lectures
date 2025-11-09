@@ -11,6 +11,8 @@ Stacks are used in recursion to keep track of function calls using a *call stack
 
 Some implementions of the undo and redo operations utilize stacks.  (They can also be implemented using linked lists.)  One stack holds the operations for undoing while another holds the operations for redoing, and once a new operation is perform, the stack holding the redo operations is cleared out.
 
+A stack is often used when traveling through a data structure like a tree or a graph.  If the priority is to travel as far down as possible, like finding the shortest path between two nodes, *depth-first search* (DFS) is used where the priority is to move down each level as much as possible.
+
 ## When and how should a stack be used?  When should a different data structure be used?
 Stacks are used most when the newest operation or piece of data that's set aside should be revisited first because of its LIFO structure.
 
@@ -24,6 +26,7 @@ Other languages, however, don't have their own implementation.  In that case, yo
 - **Monotonic stacks:** A monotonic stack contains values in strictly increasing or decreasing order, which is useful in problems like finding the "next greater element."
 - **Multiple stacks:** Use multiple stacks when needed for problems like implementing queues with stacks, keeping track of operations like undoing and redoing, etc.
 - **Be aware of parentheses and string problems:** These types of problems often utilize stacks, like if you have a valid set of parentheses.
+- **Use stacks for depth-first search (DFS):** If you are using depth-first search (DFS) for data structures like trees, stacks will come in handy to avoid recursion.  (We'll cover trees down the road!)
 
 ## Sample problems (arranged from easy to difficult)
 Do not try to solve all these at once.  Focus on one at a time, and take it slowly.  Make sure you understand the problem, the constraints, the inputs and outputs, and feel comfortable experimenting.  In an interview setting, you will be asked to explain your solution, so talk it out!

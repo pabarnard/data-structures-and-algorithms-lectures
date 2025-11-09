@@ -33,8 +33,8 @@ Here are some common time complexities, from best to worst:
 | $O(\log(n))$   | Logarithmic      | Binary search to find one value in a sorted array                  |
 | $O(n)$         | Linear           | Looping through an array                                           |
 | $O(n\log(n))$  | Linearithmic     | Merge sort, quick sort average case                                |
-| $O(n²)$        | Quadratic        | Nested loops (e.g. bubble sort, insertion sort)                    |
-| $O(2ⁿ)$        | Exponential      | Recursive Fibonacci without memoization                            |
+| $O(n^2)$        | Quadratic        | Nested loops (e.g. bubble sort, insertion sort)                    |
+| $O(2^n)$        | Exponential      | Recursive Fibonacci without memoization                            |
 | $O(n!)$        | Factorial        | Finding all arrangements of $n$ unique elements                    |
 
 Don't worry if some of terms (e.g. binary search, merge sort) do not make sense at this moment, as we will cover them as you progress through the material.
