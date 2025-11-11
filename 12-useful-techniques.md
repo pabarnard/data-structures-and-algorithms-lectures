@@ -58,7 +58,19 @@ FUNCTION problemToSolve() {
     RETURN result
 }
 ```
-NOTE: The actual code will vary based on each problem, and you might update calculations elsewhere as needed.
+NOTE: When utilizing the sliding window, the actual code will vary based on each problem, and you might update calculations elsewhere as needed.
+
+### Practice problems
+Do not try to solve all these at once.  Focus on one at a time, and take it slowly.  Make sure you understand the problem, the constraints, the inputs and outputs, and feel comfortable experimenting.  In an interview setting, you will be asked to explain your solution, so talk it out!
+
+Please follow the links to take a look at the problems in detail and tackle them on your own.  Do your best to solve these on your own first before you read the solutions!
+
+- **Longest harmonious subsequence:** [LeetCode](https://leetcode.com/problems/longest-harmonious-subsequence/)
+- **Maximum average subarray I:** [LeetCode](https://leetcode.com/problems/maximum-average-subarray-i/)
+- **Repeated DNA sequences:** [LeetCode](https://leetcode.com/problems/repeated-dna-sequences/)
+- **Longest substring without repeating characters:** [LeetCode](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
+- **Maximum erasure value:** [LeetCode](https://leetcode.com/problems/maximum-erasure-value/)
+- **Minimum window substring:** [LeetCode](https://leetcode.com/problems/minimum-window-substring/)
 
 ## Two-pointer technique
 Talk about two-pointer technique and talk about how you can expand to multiple pointers, especially for problems like linked lists and multidimensional data, like 2-D arrays
