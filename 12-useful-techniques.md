@@ -44,7 +44,9 @@ FUNCTION problemToSolve() {
     RETURN desired result
 }
 ```
-In the example above, the sliding window is of fixed length.  However, many problems may have windows of varying length, such as finding the length of the longest subarray consisting of only unique values.  The general idea is this:
+In the example above, the sliding window is of fixed length.  
+
+However, many problems may have windows of varying length, such as finding the length of the longest subarray consisting of only unique values.  The general idea is this in pseudocode:
 ```
 FUNCTION problemToSolve() {
     CREATE variables holding relevant data for sliding window, including a variable denoting the left end of the sliding window (usually an index) and possibly maps and sets as needed
@@ -73,7 +75,52 @@ Please follow the links to take a look at the problems in detail and tackle them
 - **Minimum window substring:** [LeetCode](https://leetcode.com/problems/minimum-window-substring/)
 
 ## Two-pointer technique
-Talk about two-pointer technique and talk about how you can expand to multiple pointers, especially for problems like linked lists and multidimensional data, like 2-D arrays
+The **two-pointer technique** is a strategy where you keep track of two items at the same time.  It involves creating variables pointing to different items.  They could hold numerical indexes for locations in arrays and strings, or they could point to a specific node in a linked list or a similar data structure.  
+
+Here's an illustration with an array by sorting with a selection sort: 
+```
+[5, 3, 2, 1, 8, 4, 10, 5, 2]
+
+[5, 3, 2, 1, 8, 4, 10, 5, 2]
+ ^  ^
+ |  |
+ |  |
+
+[5, 3, 2, 1, 8, 4, 10, 5, 2]
+ ^     ^
+ |     |
+ |     |
+
+[5, 3, 2, 1, 8, 4, 10, 5, 2]
+ ^        ^
+ |        |
+ |        |
+
+[1, 3, 2, 5, 8, 4, 10, 5, 2]
+ ^        ^
+ |        |
+ |        |
+
+[1, 3, 2, 5, 8, 4, 10, 5, 2]
+    ^  ^
+    |  |
+    |  |
+```
+The left pointer is used to reference the item that will be swapped for the smallest possible item on the right.  The right pointer is used to search for the smallest value on the right.  (If there's a tie, the first instance of the smallest value is picked.)  Once values are swapped, then the left pointer moves down to the next value, with the right pointer placed immediately to the right.
+
+This is one such application of the two-pointer technique.  It comes up mostly in array, string and linked list problems.  In fact, you can actually extend this idea to multiple pointers to track multiple items at once.
+
+### Practice problems
+Do not try to solve all these at once.  Focus on one at a time, and take it slowly.  Make sure you understand the problem, the constraints, the inputs and outputs, and feel comfortable experimenting.  In an interview setting, you will be asked to explain your solution, so talk it out!
+
+Please follow the links to take a look at the problems in detail and tackle them on your own.  Do your best to solve these on your own first before you read the solutions!
+
+- **Valid palindrome:** [LeetCode](https://leetcode.com/problems/valid-palindrome/)
+- **Move zeroes:** [LeetCode](https://leetcode.com/problems/move-zeroes/)
+- **Three sum:** [LeetCode](https://leetcode.com/problems/3sum/)
+- **Palindromic substrings:** [LeetCode](https://leetcode.com/problems/palindromic-substrings/)
+- **Boats to save people:** [LeetCode](https://leetcode.com/problems/boats-to-save-people/)
+- **Trapping rain water:** [LeetCode](https://leetcode.com/problems/trapping-rain-water/)
 
 ## Prefix sum
 
