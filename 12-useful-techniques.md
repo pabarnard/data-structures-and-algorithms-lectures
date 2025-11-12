@@ -81,32 +81,56 @@ Here's an illustration with an array by sorting with a selection sort:
 ```
 [5, 3, 2, 1, 8, 4, 10, 5, 2]
 
+ |
+ |
+ v
 [5, 3, 2, 1, 8, 4, 10, 5, 2]
- ^  ^
- |  |
- |  |
+ ^ 
+ |
+ |
 
+    |
+    |
+    v
 [5, 3, 2, 1, 8, 4, 10, 5, 2]
- ^     ^
- |     |
- |     |
+ ^
+ |
+ |
 
+       |
+       |
+       v
 [5, 3, 2, 1, 8, 4, 10, 5, 2]
- ^        ^
- |        |
- |        |
+ ^
+ |
+ |
 
+
+          |
+          |
+          V
+[5, 3, 2, 1, 8, 4, 10, 5, 2]
+ ^
+ |
+ |
+
+          |
+          |
+          V
 [1, 3, 2, 5, 8, 4, 10, 5, 2]
- ^        ^
- |        |
- |        |
+ ^
+ |
+ |
 
+    |
+    |
+    v
 [1, 3, 2, 5, 8, 4, 10, 5, 2]
-    ^  ^
-    |  |
-    |  |
+    ^
+    |
+    |
 ```
-The left pointer is used to reference the item that will be swapped for the smallest possible item on the right.  The right pointer is used to search for the smallest value on the right.  (If there's a tie, the first instance of the smallest value is picked.)  Once values are swapped, then the left pointer moves down to the next value, with the right pointer placed immediately to the right.
+The pointer below the array is used to reference the item that will be swapped for the smallest possible item on the right.  The pointer above the array is used to search for the smallest value on the right.  (If there's a tie, the first instance of the smallest value is picked.)  Once values are swapped, then the pointer below the array moves down to the next value, with the pointer above the array pointing to the same value.
 
 This is one such application of the two-pointer technique.  It comes up mostly in array, string and linked list problems.  In fact, you can actually extend this idea to multiple pointers to track multiple items at once.
 
