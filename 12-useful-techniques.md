@@ -147,6 +147,49 @@ Please follow the links to take a look at the problems in detail and tackle them
 - **Trapping rain water:** [LeetCode](https://leetcode.com/problems/trapping-rain-water/)
 
 ## Prefix sum
+The **prefix sum** technique is an algorithm used to keep track of running sums so that one can calculate a subarray's sum regardless of its starting and ending indexes.  This technique also applies for keeping track of how many times a condition is met as we travel through a data structure, usually an array.  It is used a lot whenever there are a ton of calculations required.
+
+Here's an illustration of using the prefix sum technique for an array:
+
+```
+sum = 0
+array = [1, 2, 3, 4, 5, 6]
+sums = []
+// After first value
+sum = 1
+array = [1, 2, 3, 4, 5, 6]
+sums = [1]
+// After second value
+sum = 3
+array = [1, 2, 3, 4, 5, 6]
+sumArray = [1, 3]
+// After third value
+sum = 6
+array = [1, 2, 3, 4, 5, 6]
+sumArray = [1, 3, 6]
+// ...
+// After final value
+sum = 21
+array = [1, 2, 3, 4, 5, 6]
+sumArray = [1, 3, 6, 10, 15, 21]
+```
+Notice that we start at the beginning and create an array holding the sums, and then we have a variable holding a sum.  As we move through the original array, we save the cumulative sum each time.
+
+The power of this techinques lies in trying to find the sum of any subarray.  Instead of requiring $O(n)$ time, it can be done in $O(1)$ time.  For example, if we wanted the sum of the values 3 through 5, inclusively, we'd only need to take the sum of 1-5 by using the sum array and then subtract the sum of just 1-2 from the sum array: so we'd get 15 - 3 = 12 without needing to loop again.  We just look up cumulative sums from the sum array.
+
+This technique is not just used for sums.  It can be used for frequencies as well.  And it can also be used for sums *after (and possibly including)* the current entry - so a suffix sum - instead of just before (and possibly including) the current value. 
+
+### Practice problems
+Do not try to solve all these at once.  Focus on one at a time, and take it slowly.  Make sure you understand the problem, the constraints, the inputs and outputs, and feel comfortable experimenting.  In an interview setting, you will be asked to explain your solution, so talk it out!
+
+Please follow the links to take a look at the problems in detail and tackle them on your own.  Do your best to solve these on your own first before you read the solutions!
+
+- **Running sum of 1-D array**: [LeetCode](https://leetcode.com/problems/running-sum-of-1d-array/)
+- **Find the highest altitude:** [LeetCode](https://leetcode.com/problems/find-the-highest-altitude/)
+- **Ways to make a fair array:** [LeetCode](https://leetcode.com/problems/ways-to-make-a-fair-array/)
+- **Zero array transformation I:** [LeetCode](https://leetcode.com/problems/zero-array-transformation-i/)
+- **Subarray sum equals k**: [LeetCode](https://leetcode.com/problems/subarray-sum-equals-k/)
+- **Find the original typed string II:** [LeetCode](https://leetcode.com/problems/find-the-original-typed-string-ii/)
 
 ## Binary search
 
