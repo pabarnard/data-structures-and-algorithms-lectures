@@ -192,5 +192,47 @@ Please follow the links to take a look at the problems in detail and tackle them
 - **Find the original typed string II:** [LeetCode](https://leetcode.com/problems/find-the-original-typed-string-ii/)
 
 ## Binary search
+The **binary search** algorithm involves trying to find a specific value from **sorted** data or from a range of possibilities.  It is used most to find the smallest or largest value that meets a certain condition - or a specific value in a data structure like an array.
+
+We start by specifying the starting and ending values, along with a condition we need to check.  Then we find the midpoint value or possibility and check the condition.  Depending on the condition, we then cut out either the lower range - starting to midpoint - or the upper range - midpoint to ending, and then set the midpoint as the new starting or ending value.
+
+Here's some pseudocode demonstrating the binary search algorithm:
+
+```
+FUNCTION binarySearch(inputs) {
+    SET lower and upper values - could be array values or other values representing a range of possibilities;
+    // WARNING: This condition could vary: could be <= instead of <; and/or could include a "+ 1" or "- 1", depending on the problem
+    WHILE (lower < upper) { 
+        midpoint = (lower + upper) / 2; // You might need to round - usually it's the floor and not the ceiling, but again be careful
+        // IMPORTANT: Here you must determine the condition you will check
+        IF (condition is true) {
+            // NOTE: These two code blocks for updating the lower and upper values might be swapped, depending on the problem
+            lower = midpoint OR midpoint - 1; // Varies by problem
+        } ELSE {
+            upper = midpoint OR midpoint + 1; // Varies by problem
+        }
+        // You might have a ELSE IF/ELSE clause in case you want to break out immediately
+    }
+    // Do post-processing and checking, if need be
+    RETURN result;
+}
+```
+You have a while loop that will run an indefinite number of times, where each iteration narrows the range of possibilities.
+
+**IMPORTANT:** Make sure that you're actually shortening the range of possible values by updating either the lower or upper bound with each iteration, otherwise you will have an infinite loop!!
+
+The power of this technique lies in its runtime: $O(\log(n))$.  (Technically it's base 2 logarithmic time.)  Every iteration of the algorithm cuts the number of possibilities by roughly half.  So even if you're dealing with a billion pieces of data or a billion possible values, with 20 iterations you'll be down to only about 1000 choices, or about one millionth the original range.
+
+### Practice problems
+Do not try to solve all these at once.  Focus on one at a time, and take it slowly.  Make sure you understand the problem, the constraints, the inputs and outputs, and feel comfortable experimenting.  In an interview setting, you will be asked to explain your solution, so talk it out!
+
+Please follow the links to take a look at the problems in detail and tackle them on your own.  Do your best to solve these on your own first before you read the solutions!
+
+- **Intersection of two arrays:** [LeetCode](https://leetcode.com/problems/intersection-of-two-arrays) - hint: sort the data first before implementing binary search
+- **Find first and last position of element in sorted array:** [LeetCode](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array)
+- **Find peak element:** [LeetCode](https://leetcode.com/problems/find-peak-element)
+- **Koko eating bananas:** [LeetCode](https://leetcode.com/problems/koko-eating-bananas)
+- **Search in rotated sorted array:** [LeetCode](https://leetcode.com/problems/search-in-rotated-sorted-array)
+- **Median of two sorted arrays:** [LeetCode](https://leetcode.com/problems/median-of-two-sorted-arrays)
 
 ## Greedy algorithm
