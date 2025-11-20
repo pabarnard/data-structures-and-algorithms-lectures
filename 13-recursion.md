@@ -157,7 +157,7 @@ FUNCTION fibonacci(n, savedTerms = {}) {
         RETURN savedTerms value for n;
     }
     IF (n <= 1) {
-        savedTerms for n = n;  SAVE the value
+        savedTerms for n = n; // SAVE the value
     } ELSE {
         savedTerms for n = fibonacci(n-2,savedTerms) + fibonacci(n-1,savedTerms);
     }
@@ -167,18 +167,36 @@ FUNCTION fibonacci(n, savedTerms = {}) {
 Notice the initial `if` statement, which checks to see if a value has already been calculated, and if so, just reuse it.  Also notice how we're passing the memo - `savedTerms` - along in the recursive step that holds the saved calculations.  DISCLAIMER: Some languages, like Java, do not allow you to create optional parameters like `savedTerms` in the pseudocode above, so you'd have to create the memos before the initial function call.
 
 ## Common approaches that may use recursion
-Recursion is used in a lot of ways to solve algorithm challenges.  We'll outline three common approaches: divide and conquer, dynamic programming (DP), and backtracking.
+Recursion is used in a lot of ways to solve algorithm challenges.  We'll outline three common approaches: divide and conquer, backtracking, greedy algorithms, and dynamic programming (DP).
 
 ### Divide and conquer
 
+### Backtracking
+
+### Greedy algorithm
+Whenever you are dealing with a problem that involves optimization, like finding the least coins needed to obtain a certain amount of change, you often need to make many decisions along the way.  If you choose to take the optimal choice every time - so take the best pick *locally* at that moment - you are working with a **greedy algorithm**, which involves obtaining a solution by making the best available decision at each step.  **IMPORTANT:** Note that a greedy algorithm will produce *a* solution, but it will NOT necessarily be the *globally* - as in overall - best solution.  Greedy algorithms are useful if you want to obtain a relatively quick solution if finding the best one would take too long, like in the traveling salesman problem, where a person must start at one city and visit the others exactly once before returning.
+
+There are two important considerations when it comes to whether to pick a greedy algorithm:
+1. **Optimal substructure:** If each subproblem has an optimal solution, then the globally best solution can be formed from the solutions to the subproblems.  For example, if you're looking for the shortest destination between cities A and E, and that route passes through cities B, C, and D, then along the same path the shortest distance between any pair of cities, such as B and E, C and D, etc. can be formed using the same route.  Notice how each subproblem - searching for the best route between any two cities - has an optimal solution.
+2. **Greedy choice property:** For each step the algorithm makes the best choice at that moment *without considering the past or future*.  So the optimalization is *local only*.
+
+An example of a greedy algorithm would be the activity selection problem, where you're given a list of activities with start and end times, and your goal is to pick the most activities possible that don't overlap.  The way to solve this would be by picking the earliest activity by *finishing time*.  Another one would be finding the least coins needed to make a given amount based on an array of coin denominations.
+
+If you find you want the globally optimal solution, dynamic programming might be the best way to go instead, where it's more thorough.  More on that below!
+
 ### Dynamic programming
 Talk about top-down (recursion, usually with memoization) vs. bottom-up (iteration)
-
-### Backtracking
 
 ## Sample problems (arranged from easy to difficult)
 Do not try to solve all these at once.  Focus on one at a time, and take it slowly.  Make sure you understand the problem, the constraints, the inputs and outputs, and feel comfortable experimenting.  In an interview setting, you will be asked to explain your solution, so talk it out!
 
 Please check the links out, as they explain the problems in much more detail, and they talk about the constraints, which are omitted here for brevity.  Do your best to solve these on your own first before you read the explanations or solutions!
 
+Your goal is to figure out the best approach that will solve each challenge.  It might involve DP.  Maybe it's divide and conquer.  Practice early and often!
+
+
+
 ## Useful references
+- *Introduction to Algorithms* by Thomas Cormen, Charles Leiserson, Ronald Rivest, Clifford Stein - arguably one of the best books out there
+- *Algorithm Design Manual* by Steven Skiena
+- *Algorithms* by Robert Sedgewick and Kevin Wayne

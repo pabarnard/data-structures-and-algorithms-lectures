@@ -234,5 +234,3 @@ Please follow the links to take a look at the problems in detail and tackle them
 - **Koko eating bananas:** [LeetCode](https://leetcode.com/problems/koko-eating-bananas)
 - **Search in rotated sorted array:** [LeetCode](https://leetcode.com/problems/search-in-rotated-sorted-array)
 - **Median of two sorted arrays:** [LeetCode](https://leetcode.com/problems/median-of-two-sorted-arrays)
-
-## Greedy algorithm
