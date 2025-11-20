@@ -161,11 +161,13 @@ FUNCTION fibonacci(n, savedTerms = {}) {
     } ELSE {
         savedTerms for n = fibonacci(n-2,savedTerms) + fibonacci(n-1,savedTerms);
     }
+    RETURN savedTerms value for n;
 }
 ```
 Notice the initial `if` statement, which checks to see if a value has already been calculated, and if so, just reuse it.  Also notice how we're passing the memo - `savedTerms` - along in the recursive step that holds the saved calculations.  DISCLAIMER: Some languages, like Java, do not allow you to create optional parameters like `savedTerms` in the pseudocode above, so you'd have to create the memos before the initial function call.
 
 ## Common approaches that may use recursion
+Recursion is used in a lot of ways to solve algorithm challenges.  We'll outline three common approaches: divide and conquer, dynamic programming (DP), and backtracking.
 
 ### Divide and conquer
 
