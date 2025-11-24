@@ -170,15 +170,23 @@ Notice the initial `if` statement, which checks to see if a value has already be
 Recursion is used in a lot of ways to solve algorithm challenges.  We'll outline three common approaches: divide and conquer, backtracking, greedy algorithms, and dynamic programming (DP).
 
 ### Divide and conquer
+Whenever a problem can be broken down into smaller subproblems that are the same or similar to the original problem in question, a common approach is to **divide and conquer** to obtain a solution.  This means *dividing* the problem into simpler and smaller chunks, none of which are overlapping, and each one can be solved *independently.*   These smaller problems are then broken down further as needed, usually recursively, until it can't be simplified any more.  Once the problem is broken down as much as possible, then each subproblem is solved, or *conquered*.  These independent solutions are then combined to form a unified answer to the overall original problem.
+
+Dividing and conquering is used a lot when parallel computing is required.  Quicksort and merge sort use this strategy as well.  Searching for values that are in order - in other words, binary search - uses the divide and conquer technique to narrow the possibilities down each time.
 
 ### Backtracking
+If you're given a problem that involves finding all possible valid solutions or you need to build out a solution as you go, backtracking can come in handy.  The **backtracking** technique involves going through possible answers, and if one answer is invalid, then all possible solutions that build from that are not correct as well, so you undo the most recent operation - or backtrack - and then try another candidate for an answer.  So try one possibility, keep exploring recursively until it is a valid answer, in which case we save or return it, or if we hit a roadblock where the candidate is now no longer a possible correct solution, we backtrack to the point where it's still valid and then move on to the next possibility.  Memoization is not often used as calculations are not repeated often, but you still need to keep track of progress as you go.
+
+Backtracking is better than brute force in that we can prune, or eliminate, possible sets of answers that don't meet the conditions of the problem.
+
+Examples of backtracking include generating all permutations of a series of numbers (e.g. all arrangements of `[1,2,3]` in an order), solving real-life puzzles like Sudoku, crosswords, the N-queens puzzle, and much more.
 
 ### Greedy algorithm
 Whenever you are dealing with a problem that involves optimization, like finding the least coins needed to obtain a certain amount of change, you often need to make many decisions along the way.  If you choose to take the optimal choice every time - so take the best pick *locally* at that moment - you are working with a **greedy algorithm**, which involves obtaining a solution by making the best available decision at each step.  **IMPORTANT:** Note that a greedy algorithm will produce *a* solution, but it will NOT necessarily be the *globally* - as in overall - best solution.  Greedy algorithms are useful if you want to obtain a relatively quick solution if finding the best one would take too long, like in the traveling salesman problem, where a person must start at one city and visit the others exactly once before returning.
 
 There are two important considerations when it comes to whether to pick a greedy algorithm:
 1. **Optimal substructure:** If each subproblem has an optimal solution, then the globally best solution can be formed from the solutions to the subproblems.  For example, if you're looking for the shortest destination between cities A and E, and that route passes through cities B, C, and D, then along the same path the shortest distance between any pair of cities, such as B and E, C and D, etc. can be formed using the same route.  Notice how each subproblem - searching for the best route between any two cities - has an optimal solution.
-2. **Greedy choice property:** For each step the algorithm makes the best choice at that moment *without considering the past or future*.  So the optimalization is *local only*.
+2. **Greedy choice property:** For each step the algorithm makes the best choice at that moment *without considering the past or future*.  So the optimization is *local only*.
 
 An example of a greedy algorithm would be the activity selection problem, where you're given a list of activities with start and end times, and your goal is to pick the most activities possible that don't overlap.  The way to solve this would be by picking the earliest activity by *finishing time*.  Another one would be finding the least coins needed to make a given amount based on an array of coin denominations.
 
@@ -186,6 +194,9 @@ If you find you want the globally optimal solution, dynamic programming might be
 
 ### Dynamic programming
 Talk about top-down (recursion, usually with memoization) vs. bottom-up (iteration)
+
+## General strategy for picking the right technique(s) to use to solve an algorithm challenge
+
 
 ## Sample problems (arranged from easy to difficult)
 Do not try to solve all these at once.  Focus on one at a time, and take it slowly.  Make sure you understand the problem, the constraints, the inputs and outputs, and feel comfortable experimenting.  In an interview setting, you will be asked to explain your solution, so talk it out!

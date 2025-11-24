@@ -28,8 +28,8 @@ This repository contains my personal notes when it comes to data structures and 
     - Binary search
 - Recursion
     - Backtracking 
-    - Dynamic programming vs. greedy algorithms
     - Divide and conquer
+    - Dynamic programming vs. greedy algorithms
 - Graphs
     - Breadth-first vs. depth-first search
 - Trees
