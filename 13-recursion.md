@@ -193,10 +193,22 @@ An example of a greedy algorithm would be the activity selection problem, where 
 If you find you want the globally optimal solution, dynamic programming might be the best way to go instead, where it's more thorough.  More on that below!
 
 ### Dynamic programming
-Talk about top-down (recursion, usually with memoization) vs. bottom-up (iteration)
+When a problem can be broken down into smaller chunks that can be solved, dynamic programming is another approach to consider.  **Dynamic programming** is a technique that finds optimal solutions to smaller subproblems, often recursively, and these smaller chunks overlap (unlike divide and conquer, where there is no overlap), and the overall best solution can be constructed from the optimal solutions of the subproblems.  The solutions to the subproblems are stored to prevent duplicate calculations.  Examples include finding the longest common substring for any two strings, finding a term in the Fibonacci sequence, and calculating terms in Pascal's triangle.
+
+There are two approaches to dynamic programming: top-down and bottom-up.  
+
+The **top-down** approach entails starting with the overall problem and working down to smaller subproblems.  Usually recursion is used in conjunction with memoization to save previous calculations.  In the Fibonacci sequence via the top-down approach, you would start with the $n^{th}$ term, then move to the $(n-1)^{th}$ term, the $(n-2)^{th}$ term, etc. until you reach the simplest case.  
+
+The **bottom-up** approach starts with the simplest case possible and then works up to the overall problem to be solved.  Usually iteration is utilization with a table of some sort (e.g. an array) to hold calculations.  Applying the bottom-up approach with the Fibonacci sequence would mean starting with the first and second terms, and then adding iteratively to obtain each successive term until the desired one is reached.
+
+If you can come up with a bottom-up approach to a problem, it will usually be superior to the more intuitive top-down approach because it will usually be more - or at least just as - efficient in terms of space and time.
 
 ## General strategy for picking the right technique(s) to use to solve an algorithm challenge
-
+When you have to tackle a problem that may involve recursion, it helps to break down the problem and identify which approaches work best.  Consider:
+- **Divide and conquer:** The problem can be broken down into smaller subproblems that can be solved **independently** (no overlap).
+- **Dynamic programming (DP):** The problem can be broken down into smaller suproblems that can be solved with overlap, and each subproblem has an optimal solution.  Consider whether a top-down approach with memoization or a bottom-up approach with tabulation is best.
+- **Greedy algorithm:** If you want to obtain a solution as quickly as possible by picking the best one each step of the way, then this is your approach.  Note that the overall solution might not be optimal, and if you want the optimal solution, then divide and conquer or dynamic programming will suit you better than a greedy algorithm.
+- **Backtracking:** If the problem asks you to find multiple solutions or make many decisions along the way, and you can eliminate possible sets of solutions as you go, then this is the best way to go.  Be careful as this is usually the slowest apporach.
 
 ## Sample problems (arranged from easy to difficult)
 Do not try to solve all these at once.  Focus on one at a time, and take it slowly.  Make sure you understand the problem, the constraints, the inputs and outputs, and feel comfortable experimenting.  In an interview setting, you will be asked to explain your solution, so talk it out!
@@ -205,7 +217,7 @@ Please check the links out, as they explain the problems in much more detail, an
 
 Your goal is to figure out the best approach that will solve each challenge.  It might involve DP.  Maybe it's divide and conquer.  Practice early and often!
 
-
+**TO BE ADDED**
 
 ## Useful references
 - *Introduction to Algorithms* by Thomas Cormen, Charles Leiserson, Ronald Rivest, Clifford Stein - arguably one of the best books out there
