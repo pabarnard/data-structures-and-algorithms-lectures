@@ -210,6 +210,8 @@ When you have to tackle a problem that may involve recursion, it helps to break 
 - **Greedy algorithm:** If you want to obtain a solution as quickly as possible by picking the best one each step of the way, then this is your approach.  Note that the overall solution might not be optimal, and if you want the optimal solution, then divide and conquer or dynamic programming will suit you better than a greedy algorithm.
 - **Backtracking:** If the problem asks you to find multiple solutions or make many decisions along the way, and you can eliminate possible sets of solutions as you go, then this is the best way to go.  Be careful as this is usually the slowest apporach.
 
+Note that you want optimal substructure if you want to use divide and conquer or dynamic programming.  It may also apply for a greedy algorithm, provided that it yields optimal solutions at each step.
+
 ## Sample problems (arranged from easy to difficult)
 Do not try to solve all these at once.  Focus on one at a time, and take it slowly.  Make sure you understand the problem, the constraints, the inputs and outputs, and feel comfortable experimenting.  In an interview setting, you will be asked to explain your solution, so talk it out!
 
