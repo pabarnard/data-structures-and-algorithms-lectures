@@ -219,9 +219,18 @@ Please check the links out, as they explain the problems in much more detail, an
 
 Your goal is to figure out the best approach that will solve each challenge.  It might involve DP.  Maybe it's divide and conquer.  Practice early and often!
 
-**TO BE ADDED**
+- **Pascal's triangle:** [LeetCode](https://leetcode.com/problems/pascals-triangle)
+- **Climbing stairs:** [LeetCode](leetcode.com/problems/climbing-stairs)
+- **Can place flowers:** [LeetCode](https://leetcode.com/problems/can-place-flowers)
+- **Valid triangle number:** [LeetCode](https://leetcode.com/problems/valid-triangle-number)
+- **Maximum subarray:** [LeetCode](https://leetcode.com/problems/maximum-subarray)
+- **Frequency of the most frequent element:** [LeetCode](https://leetcode.com/problems/frequency-of-the-most-frequent-element)
+- **Trapping rain water:** [LeetCode](https://leetcode.com/problems/trapping-rain-water)
+- **N-Queens:** [LeetCode](https://leetcode.com/problems/n-queens)
+- **Find the maximum number of fruits collected:** [LeetCode](https://leetcode.com/problems/find-the-maximum-number-of-fruits-collected)
+- **Split array largest sum:** [LeetCode](https://leetcode.com/problems/split-array-largest-sum)
 
-## Useful references
+## Useful books
 - *Introduction to Algorithms* by Thomas Cormen, Charles Leiserson, Ronald Rivest, Clifford Stein - arguably one of the best books out there
 - *Algorithm Design Manual* by Steven Skiena
 - *Algorithms* by Robert Sedgewick and Kevin Wayne
