@@ -139,17 +139,51 @@ For undirected graphs, adjacency matrices are symmetric about the diagonal.  (A 
 An adjacency list is best if you do not have a bunch of connections and the graph is sparse.  However, if you have a ton of connections and nodes and the graph itself is rather dense, an adjacency matrix is best.  Also consider memory and time tradeoffs when using one representation vs. another.  For example, you have $O(N^2)$ space for a graph with $N$ nodes if you use an adjacency matrix, but you might not need as much in an adjacency list.
 
 ## Traversing a graph
-Talk about breadth-first vs. depth-first search
-Finding shortest path (e.g. Dijkstra's Algorithm)
+Traveling through a graph can be messy if you don't have a strategy in mind.  You might prioritize findest the shortest route in terms of distance between two locations.  Maybe you prefer the fastest time, even if it isn't the shortest distance.  Keep your goal in mind, and it'll help you determine which way to traverse a graph.
+
+Two common techniques for going through a graph from one node to another are breadth-first search and depth-first search.
+
+**Breadth-first search (BFS)** prioritizes through the nodes in each level before traveling to the next one.  For example, given the following graph (Example 4):
+```
+      A----             Level 1
+     / \   \
+    B   C---D           Level 2
+   / \   \
+  E   F   G             Level 3
+          |
+          H             Level 4
+```
+If we start at A, we then examine all the nodes adjacent to it in the next level, so B, C, and D.  Then we move on to the next set of nodes afterwards adjacent to those that we haven't visited yet, so E, F, and G.  H is visited last in the final level.
+
+To facilitate traveling through the nodes through breadth-first search (BFS), a queue is usually used to hold the next nodes to visit.  New nodes are added to the back of the queue, while the oldest nodes are removed.  Note that we must keep track of which nodes have been visited already to prevent the possibility of an infinite loop due to going on a circular path where we revisit a node.  (We'll cover cycles farther down.)  You can track which nodes were visited by using a set or an array or a similar data structure to help you mark the nodes you've seen already so that we don't add them to the queue again.  
+
+BFS starts off with one node, which is loaded into the queue to start.  Then we travel through the queue, removing the oldest node, which we'll call X, each time.  Then for each node adjacent to X that we have NOT visited yet, add those to the queue.  Once they're enqueued, mark node X as visited.  Repeat the process until the queue is empty.  (The pseudocode is left out to help you think through how to write the code yourself!)
+
+**Depth-first search (DFS)** starts at one node, and then we go through each adjacent node, traveling down as far as we can before moving on to the next adjacent node (if applicable).  In example 4, we start at A, and then we travel down to B, and then travel down to E, then backtrack to B to go to F, then backtrack to B and back to A.  Then we go from A to C and repeat the process.
+
+To enable us to travel down the graph, we use a stack.  The newest node is pushed to the top of the stack, and then we keep adding to the top of the stack as long as we can.  Once we reach the end, then we pop nodes off as we backtrack and then travel to adjacent nodes.  Note that like in BFS, DFS tracks the nodes we've visited so we don't risk an infinite loop.  
+
+DFS starts at a specific node, which is added to the stack and marked as visited.  Then we pick a node adjacent to it, and then push that to the stack.  We repeat the process until we cannot proceed any farther, so then we backtrack and pop nodes off.  We continue to push and pop nodes until the stack is fully empty.
+
+DFS can also be accomplished by using recursion, although you must be careful in that you don't want to risk stack overflow due to the call stack becoming too large.
+
+Note that picking which note to travel to and push to the stack - or call via recursion - will depend on the graph itself.  If it's a weighted graph, you might want to pick the adjacent node with the least or most weight.  If it's unweighted, it might not matter as much which node to travel to first.
+
+Both BFS and DFS enable you to travel down a graph.  When to use each of them depends on the problem in question, and in many cases it won't matter which one to use.  However, sometimes one will be better than the other.  For example, if your priority is to locate a specific node as quickly as possible from the starting point, depth-first search (DFS) will usually be better.  If you want to visit adjacent spots as quickly as you can first before moving deeper into the graph, breadth-first search (BFS) will likely be superior.  BFS is more useful for shortest-distance problems.
+
+DFS prioritizes paths, while BFS prioritizes levels.  BFS will be better for unweighted graphs, while DFS is best for weighted graphs.
+
+## Shortest path
+Dijkstra's Algorithm, Bellman-Ford, Floyd-Warshall Algorithm
 
 ## Topological sorting
 
 
 ## Cycles and detecting them
-
+DFS or Union Find for Cycles
 
 ## Minimum spanning trees
-
+Kruskal's Algorithm, Prim's Algorithm
 
 ## When to use each type of graph
 
