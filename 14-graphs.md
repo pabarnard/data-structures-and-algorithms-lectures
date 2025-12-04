@@ -174,7 +174,38 @@ Both BFS and DFS enable you to travel down a graph.  When to use each of them de
 DFS prioritizes paths, while BFS prioritizes levels.  BFS will be better for unweighted graphs, while DFS is best for weighted graphs.
 
 ## Shortest path
-Dijkstra's Algorithm, Bellman-Ford, Floyd-Warshall Algorithm
+When you need to find the shortest path between two nodes, there are many algorithms out there.  The graph's type - weighted (including possibly negative weights) vs. unweighted and directed vs. undirected - and the goal of the problem play a major role in determining which algorithm works best.  
+
+### Dijkstra's algorithm
+One algorithm that's popular for weighted graphs - whether directed or not - is Dijkstra's algorithm.  **Dijkstra's algorithm** is used to calculate the shortest distance to all nodes from a specific one.
+
+The algorithm requires two data structures: a priority queue where the smallest value is the one to be popped first and a set to hold all the nodes we have not visited yet.
+
+The graph cannot have negative weights.  If you need to consider negative weights, use the Bellman-Ford algorithm, which will be described in the next subsection.
+
+The algorithm works like this:
+1. Assign starting distance values for each node.  The starting node will have a distance of 0, and the remaining nodes will start with a value of infinity.  These values can be saved in an array, a map or any data structure you see fit.
+2. Load the starting node into a priority queue.  Each entry in the priority queue will hold a node and its currently calculated distance to the starting node.  Initially each of these distances will be infinity.
+3. Initial an empty set holding the nodes you've visited.
+4. While the priority queue is not empty:
+    - Grab the node `X` with the smallest overall distance from the starting point.
+    - Save this new node `X` to the set of nodes visited so you don't go through it again.
+    - Calculate the overall distance from the starting node through node `X` to each neighbor using the edge weight connecting it to `X`.  If this value is smaller than the saved distance for that neighbor, update it accordingly and change that node's priority value.  (Some languages, like Python, do not support changing priority natively, so you might have to implement lazy insertions, removing outdated entries as you remove from the queue.)
+5. Return the distances from each node to the current one.
+
+It is possible to save the paths holding the minimum distances from the starting node to the remaining nodes in the graph.  
+
+Be careful if you're using an adjacency matrix vs. an adjacency list, as this will affect operations.
+
+### Bellman-Ford algorithm
+
+### Johnson's algorithm
+
+### Floyd-Warshall algorithm
+
+
+
+You likely will not need to implement Johnson's, Bellman-Ford or the Floyd-Warshall algorithm in an interview.  However, it's good to know about these and other techniques for finding the shortest path in a graph.
 
 ## Topological sorting
 
