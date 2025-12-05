@@ -155,7 +155,7 @@ Two common techniques for going through a graph from one node to another are bre
 ```
 If we start at A, we then examine all the nodes adjacent to it in the next level, so B, C, and D.  Then we move on to the next set of nodes afterwards adjacent to those that we haven't visited yet, so E, F, and G.  H is visited last in the final level.
 
-To facilitate traveling through the nodes through breadth-first search (BFS), a queue is usually used to hold the next nodes to visit.  New nodes are added to the back of the queue, while the oldest nodes are removed.  Note that we must keep track of which nodes have been visited already to prevent the possibility of an infinite loop due to going on a circular path where we revisit a node.  (We'll cover cycles farther down.)  You can track which nodes were visited by using a set or an array or a similar data structure to help you mark the nodes you've seen already so that we don't add them to the queue again.  
+To facilitate traveling through the nodes through breadth-first search (BFS), a queue is usually used to hold the next nodes to visit.  New nodes are added to the back of the queue, while the oldest nodes are removed.  Note that we must keep track of which nodes have been visited already to prevent the possibility of an infinite loop due to going on a circular path where we revisit a node - i.e., a cycle.  (We'll cover cycles in the next section!)  You can track which nodes were visited by using a set or an array or a similar data structure to help you mark the nodes you've seen already so that we don't add them to the queue again.  
 
 BFS starts off with one node, which is loaded into the queue to start.  Then we travel through the queue, removing the oldest node, which we'll call X, each time.  Then for each node adjacent to X that we have NOT visited yet, add those to the queue.  Once they're enqueued, mark node X as visited.  Repeat the process until the queue is empty.  (The pseudocode is left out to help you think through how to write the code yourself!)
 
@@ -173,11 +173,19 @@ Both BFS and DFS enable you to travel down a graph.  When to use each of them de
 
 DFS prioritizes paths, while BFS prioritizes levels.  BFS will be better for unweighted graphs, while DFS is best for weighted graphs.
 
+## Cycles and detecting them
+
+### Method I: Depth-first search
+
+### Method II: Union-find
+
+### Method III: Topological sort
+
 ## Shortest path
-When you need to find the shortest path between two nodes, there are many algorithms out there.  The graph's type - weighted (including possibly negative weights) vs. unweighted and directed vs. undirected - and the goal of the problem play a major role in determining which algorithm works best.  
+When you need to find the shortest path between two nodes - or for all pairs of nodes, there are many algorithms out there.  The graph's type - weighted (including possibly negative weights) vs. unweighted and directed vs. undirected - and the goal of the problem play a major role in determining which algorithm works best.  
 
 ### Dijkstra's algorithm
-One algorithm that's popular for weighted graphs - whether directed or not - is Dijkstra's algorithm.  **Dijkstra's algorithm** is used to calculate the shortest distance to all nodes from a specific one.
+One algorithm that's popular for weighted graphs - whether directed or not - is Dijkstra's algorithm.  **Dijkstra's algorithm** is used to calculate the shortest distance to all nodes from a specific one.  This kind of problem is a Single-Source Shortest Path (SSSP) algorithm.
 
 The algorithm requires two data structures: a priority queue where the smallest value is the one to be popped first and a set to hold all the nodes we have not visited yet.
 
@@ -195,23 +203,30 @@ The algorithm works like this:
 
 It is possible to save the paths holding the minimum distances from the starting node to the remaining nodes in the graph.  
 
-Be careful if you're using an adjacency matrix vs. an adjacency list, as this will affect operations.
+Be careful if you're using an adjacency matrix vs. an adjacency list, as this choice will affect operations.
 
 ### Bellman-Ford algorithm
+If you have negative weights in your graph (directed or not), then Dijkstra's algorithm will not work.  The **Bellman-Ford algorithm** (or Bellman-Ford-Moore) is used to find the shortest path from one node to each of the other nodes in a graph where negative weights are possible.  It is also an algorithm for finding the solution to an SSSP.
 
-### Johnson's algorithm
+Here's how Bellman-Ford works:
+1. Assign starting distance values for each node.  The starting node will have a distance of 0, and the remaining nodes will start with a value of infinity.  These values can be saved in an array, a map or any data structure you see fit.
+2. Loop $n - 1$ times, where $n$ is the number of vertices (nodes) in the graph:
+    - Loop through *each* edge in the graph:
+        - If the calculated distance from the source to node $i$ + edge weight between nodes $i$ and $j$ < calculated distance from the source to node $j$, then update the distance from the source to node $j$.
+3. Check for a negative cycle.  At this point, we go through each edge again, and if the calculated distance from the source to node $i$ + edge weight between nodes $i$ and $j$ < calculated distance from the source to node $j$, then there is a negative cycle because you can then always decrease the distances infinitely.  Note that if we don't have a negative cycle, no distances should change at all at this point; in other words the distances are optimized already.
 
-### Floyd-Warshall algorithm
+**IMPORTANT:** To reiterate, if you have a negative cycle, i.e. adding the weights for at least one path that starts and ends at the same node results in a negative sum, this algorithm will NOT work because there is no optimal shortest path as the weight will trend to negative infinity.
 
+We only need to loop $n - 1$ times because a graph with $n$ vertexes has at most $n - 1$ edges.  Even if we have cycles - provided the cycles are not negative - the algorithm will still hold.
 
+It is possible to save the paths holding the minimum distances from the starting node to the remaining nodes in the graph, along with any negative cycles detected.
 
-You likely will not need to implement Johnson's, Bellman-Ford or the Floyd-Warshall algorithm in an interview.  However, it's good to know about these and other techniques for finding the shortest path in a graph.
+The Bellman-Ford algorithm is slower than Dijkstra's algorithm, but has more general applications.  Bellman-Ford runs in $O(V \cdot E)$ time, where $V$ is the number of vertexes (nodes) and $E$ is the number of edges, while Dijkstra runs in $O(V + E\log(V))$ time.  Usually $E \approx V^2$, so these simplify to $O(V^3)$ and $O(V+V^2\log(V))$ time, respectively, meaning Dijkstra is used more often as negative weights are rare in most applications.
 
-## Topological sorting
+You likely won't need to implement Bellman-Ford algorithm, but it's good to be familiar with it and known when to use it compared to Dijkstra's algorithm.
 
-
-## Cycles and detecting them
-DFS or Union Find for Cycles
+### Other algorithms 
+If you wish to find the shortest paths between all pairs of nodes, you can use Johnson's algorithm or the Floyd-Warshall algorithm.  Both of them work for weighted graphs, directed or undirected.  Each of them work for negative weights, but not for negative cycles.  These are beyond the scope of what you likely need to know in an interview.  However, it's good to know about these and other techniques for finding the shortest path in a graph.
 
 ## Minimum spanning trees
 Kruskal's Algorithm, Prim's Algorithm
