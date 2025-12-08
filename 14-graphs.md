@@ -174,8 +174,32 @@ Both BFS and DFS enable you to travel down a graph.  When to use each of them de
 DFS prioritizes paths, while BFS prioritizes levels.  BFS will be better for unweighted graphs, while DFS is best for weighted graphs.
 
 ## Cycles and detecting them
+When you have a graph, it's often useful to find cycles.  A **cycle** is a path of nodes in which only the first and last nodes are the same, and no other nodes are duplicated.  Cycles can be detected in directed and undirected graphs.  (A **circuit** is like a cycle in that the first and last nodes are the same with at least one edge visited, but other nodes can be duplicated, including the starting/ending node.)
+
+Here are some examples of cycles:
+```
+Directed graph with A-B-C-D-A:
+A -> B
+^    |
+|    v
+D <- C
+
+Undirected graph with B-C-D-A-B (or any 
+vertex as a starting point in this case):
+A----B----C
+\         |
+ \________D
+```
+Cycles are important to detect because you don't want to have an algorithm run infinitely.  For example, when modeling traffic, you usually don't want cars traveling in circles.  On the other hand, you might be a pedestrian planning a run that circles multiple neighborhoods.  In networks you don't want a cycle because you don't want data structure or power being rerouted forever.
+
+There are multiple approaches to detecting graphs.  Let's break down some common methods.
 
 ### Method I: Depth-first search
+The most common strategy is using depth-first search (DFS).  With DFS you can build a stack - or use a call stack via recursion - holding the nodes you've visited so far.  Once you encounter a node that's already in the stack, you have detected a cycle.  
+
+You can use DFS for directed and undirected graphs.  However, if you do so for an undirected graph, be careful!  You must keep track of what your parent - or last - node is so that you don't accidentally revisit it.  For a directed graph, we have to check if the next node in line has already been visited at some point along the path; you don't need to worry about the parent node.
+
+You might consider using a set to keep track of the nodes you've visited.  Just make sure in depth-first search to remove nodes when backtracking.
 
 ### Method II: Union-find
 
@@ -221,7 +245,9 @@ We only need to loop $n - 1$ times because a graph with $n$ vertexes has at most
 
 It is possible to save the paths holding the minimum distances from the starting node to the remaining nodes in the graph, along with any negative cycles detected.
 
-The Bellman-Ford algorithm is slower than Dijkstra's algorithm, but has more general applications.  Bellman-Ford runs in $O(V \cdot E)$ time, where $V$ is the number of vertexes (nodes) and $E$ is the number of edges, while Dijkstra runs in $O(V + E\log(V))$ time.  Usually $E \approx V^2$, so these simplify to $O(V^3)$ and $O(V+V^2\log(V))$ time, respectively, meaning Dijkstra is used more often as negative weights are rare in most applications.
+The Bellman-Ford algorithm is slower than Dijkstra's algorithm, but has more general applications.  Bellman-Ford runs in $O(V \cdot E)$ time, where $V$ is the number of vertexes (nodes) and $E$ is the number of edges, while Dijkstra runs in $O(V + E\log(V))$ time.  Usually $E \approx V^2$, so these simplify to $O(V^3)$ and $O(V+V^2\log(V))$ time, respectively, meaning Dijkstra is used more often as negative weights are rare in most applications.  
+
+If you don't have negative weights, then use Dijkstra's algorithm due to its faster run time.  However, if you have negative weights, use the Bellman-Ford algorithm; if you have a negative cycle, though, then neither algorithm will work.
 
 You likely won't need to implement Bellman-Ford algorithm, but it's good to be familiar with it and known when to use it compared to Dijkstra's algorithm.
 
@@ -237,4 +263,6 @@ Kruskal's Algorithm, Prim's Algorithm
 ## Practice problems
 
 
-## References
+## References and extra information
+- *Introduction to Algorithms* by Thomas Cormen, Charles Leiserson, Ronald Rivest, Clifford Stein
+- [Baeldung](https://www.baeldung.com/cs/path-vs-cycle-vs-circuit): Graph cycles vs. paths vs. circuits
