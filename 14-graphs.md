@@ -192,18 +192,26 @@ A----B----C
 ```
 Cycles are important to detect because you don't want to have an algorithm run infinitely.  For example, when modeling traffic, you usually don't want cars traveling in circles.  On the other hand, you might be a pedestrian planning a run that circles multiple neighborhoods.  In networks you don't want a cycle because you don't want data structure or power being rerouted forever.
 
-There are multiple approaches to detecting graphs.  Let's break down some common methods.
+There are multiple approaches to detecting graphs.  Let's break down three methods you can use.  (There's a fourth called the Bellman-Ford algorithm, but that will be covered in the next section on finding the shortest path.)
 
 ### Method I: Depth-first search
-The most common strategy is using depth-first search (DFS).  With DFS you can build a stack - or use a call stack via recursion - holding the nodes you've visited so far.  Once you encounter a node that's already in the stack, you have detected a cycle.  
+The most common strategy is to utilize depth-first search (DFS).  With DFS you can build a stack - or use a call stack via recursion - holding the nodes you've visited so far.  Once you encounter a node that's already in the stack, you have detected a cycle.  
 
 You can use DFS for directed and undirected graphs.  However, if you do so for an undirected graph, be careful!  You must keep track of what your parent - or last - node is so that you don't accidentally revisit it.  For a directed graph, we have to check if the next node in line has already been visited at some point along the path; you don't need to worry about the parent node.
 
 You might consider using a set to keep track of the nodes you've visited.  Just make sure in depth-first search to remove nodes when backtracking.
 
 ### Method II: Union-find
+Talk about putting each vertex (node) into its own set, and then combine sets as needed until a node has been duplicated
+
+Works only for undirected graphs, weighted or unweighted; uses adjacency matrix
 
 ### Method III: Topological sort
+Sort nodes in terms of those that come first (e.g. A -> B means A is before B); many ways to sort topologically, and if there is a cycle, there is no topological sort
+
+Works only for directed graphs, weighted or unweighted
+
+When to use each method, including Bellman-Ford
 
 ## Shortest path
 When you need to find the shortest path between two nodes - or for all pairs of nodes, there are many algorithms out there.  The graph's type - weighted (including possibly negative weights) vs. unweighted and directed vs. undirected - and the goal of the problem play a major role in determining which algorithm works best.  
