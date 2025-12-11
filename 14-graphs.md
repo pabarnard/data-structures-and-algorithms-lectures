@@ -209,11 +209,16 @@ The union-find technique uses a disjoint-set data structure - also called a "uni
 Note that weights in the graph are ignored.  To repeat: the union-find technique works for undirected graphs, weighted or unweighted.
 
 ### Method III: Topological sort
-Sort nodes in terms of those that come first (e.g. A -> B means A is before B); many ways to sort topologically, and if there is a cycle, there is no topological sort
+Yet another way we can detect if a cycle exists is by attempting a topological sort for the graph if it is a directed graph.  A **topological sort** for a *directed* graph, weighted or unweighted, puts the nodes in order in such a way so that for each edge connecting from node $X$ to node $Y$, $X$ comes before $Y$.  In example 2, two possible topological sorts are `A, B, C, D` or `A, B, D, C`.  A couple of strategies for a topological sort are Kahn's algorithm and depth-first search.
 
-Works only for directed graphs, weighted or unweighted
+Now if there is a cycle for the directed graph, there is no topological sort.  Weights are ignored.
 
-When to use each method, including Bellman-Ford
+Depending on the implementation, you might use a stack, set and/or queue.
+
+### Summary of methods
+The most general approach for detecting a cycle is with depth-first search (DFS), which works for any graph type.  The union-find technique works for undirected graphs, and if there are weights, they're not considered.  Topological sorting works for a directed graph, regardless of if there are weights or not.
+
+If you need to consider negative cycles, i.e., cycles where the sum of the weights is negative, then use the Bellman-Ford algorithm, which will be described in the next section.
 
 ## Shortest path
 When you need to find the shortest path between two nodes - or for all pairs of nodes, there are many algorithms out there.  The graph's type - weighted (including possibly negative weights) vs. unweighted and directed vs. undirected - and the goal of the problem play a major role in determining which algorithm works best.  
