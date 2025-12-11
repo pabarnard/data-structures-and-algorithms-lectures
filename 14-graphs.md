@@ -202,9 +202,11 @@ You can use DFS for directed and undirected graphs.  However, if you do so for a
 You might consider using a set to keep track of the nodes you've visited.  Just make sure in depth-first search to remove nodes when backtracking.
 
 ### Method II: Union-find
-Talk about putting each vertex (node) into its own set, and then combine sets as needed until a node has been duplicated
+Another method used to detect cycles is the union-find technique.  The **union-find technique** for *undirected* graphs starts by putting each node into its own set.  Then we examine each edge and if the two connected nodes are in different sets, merge them into a new set.  For example, if nodes A and B are in one set and C and D are in another, and you're examining the edge connecting B and C, then the two sets are merged into a new set containing A, B, C, and D.  If there is an edge where the two nodes are in the same set, then a cycle is detected.  But if after inspecting each edge there is a single set remaining, then there is no cycle.
 
-Works only for undirected graphs, weighted or unweighted; uses adjacency matrix
+The union-find technique uses a disjoint-set data structure - also called a "union-find data structure".  It's often used to determine if two elements belong in the same set or two separate sets.  Merging two sets is very efficient, as is checking if an element belongs.  Note that an element can only belong in one set.
+
+Note that weights in the graph are ignored.  To repeat: the union-find technique works for undirected graphs, weighted or unweighted.
 
 ### Method III: Topological sort
 Sort nodes in terms of those that come first (e.g. A -> B means A is before B); many ways to sort topologically, and if there is a cycle, there is no topological sort
