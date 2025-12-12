@@ -270,7 +270,39 @@ You likely won't need to implement Bellman-Ford algorithm, but it's good to be f
 If you wish to find the shortest paths between all pairs of nodes, you can use Johnson's algorithm or the Floyd-Warshall algorithm.  Both of them work for weighted graphs, directed or undirected.  Each of them work for negative weights, but not for negative cycles.  These are beyond the scope of what you likely need to know in an interview.  However, it's good to know about these and other techniques for finding the shortest path in a graph.
 
 ## Minimum spanning trees
-Kruskal's Algorithm, Prim's Algorithm
+You are often given a graph with tons of nodes and edges.  You might want to clean the graph up by removing unnecessary edges.  A **spanning tree** is a pruned version of the original *undirected, weighted* graph, where there are no cycles in any of the edges while all the nodes remain connected.  (If the graph is not connected, i.e. not all the nodes are connected to one another, then you can generate spanning trees for each set of nodes that can be connected.)  The **minimum spanning tree** is a spanning tree for an *undirected, weighted* graph where the sum of the edges are as minimized as possible.
+
+For example, if you have the following graph (Example 5):
+```
+    8      3
+A ----- B --- C
+        |   / |
+       4| 2/  | 6
+        | /   |
+        D-----E
+           3
+```
+One possible minimum spanning tree is:
+```
+    8      3
+A ----- B --- C
+            / 
+          2/  
+          /   
+        D-----E
+           3
+```
+Notice how the edges for `BD` and `CE` are removed.  Each node is connected, and there are no cycles.
+
+Minimum spanning trees have many real-life applications, such as laying down wires for a fiber-optic network, electrical wiring for a power grid, clustering in machine learning, and many, many more.
+
+We will discuss two popular ways to construct a minimum spanning tree: Kruskal's Algorithm and Prim's Algorithm.
+
+In **Prim's algorithm** you start with a new graph from scratch by picking any vertex you wish with *no* edges included yet.  Then add one edge at a time in such a way so that we pick the edge with the lowest weight, and the node that's connected is not part of the new graph yet.  If more than one edge has the lowest weight, pick any one of them you wish.  Repeat the process by adding edges until all the vertices are connected together.  
+
+In **Kruskal's algorithm** you begin by taking the edges and sorting them by their weight.  In each step, pick the edge that has the smallest weight while ensuring it does *NOT* form a cycle and connect the nodes together.  (If it does the edge is not considered.)  Continue to add edges until all the nodes are connected.  IMPORTANT: Unlike in Prim's algorithm where you will have a single graph that you build out, in Kruskal's algorithm initially you might have multiple subgraphs that aren't connected as edges are added in; e.g. for a graph with nodes A through J that are connected, you might have one subgraph with nodes A, B, and C connected but another with nodes G and H connected at some point, but eventually all the nodes will connect and form a single graph.
+
+Kruskal's algorithm is usually a little faster than Prim's algorithm, although it will depend on how the graph is represented and what additional data structures are used (e.g. sets, priority queues).
 
 ## When to use each type of graph
 
@@ -280,4 +312,5 @@ Kruskal's Algorithm, Prim's Algorithm
 
 ## References and extra information
 - *Introduction to Algorithms* by Thomas Cormen, Charles Leiserson, Ronald Rivest, Clifford Stein
+- *Algorithms, 4th Edition* by Robert Sedgewick and Kevin Wayne, with supplemental site [here](https://algs4.cs.princeton.edu/home/)
 - [Baeldung](https://www.baeldung.com/cs/path-vs-cycle-vs-circuit): Graph cycles vs. paths vs. circuits
