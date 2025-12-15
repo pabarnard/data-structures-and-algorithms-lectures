@@ -308,6 +308,20 @@ Kruskal's algorithm is usually a little faster than Prim's algorithm, although i
 
 
 ## Practice problems
+Do not try to solve all these at once.  Focus on one at a time, and take it slowly.  Make sure you understand the problem, the constraints, the inputs and outputs, and feel comfortable experimenting.  In an interview setting, you will be asked to explain your solution, so talk it out!
+
+Please check the links out, as they explain the problems in much more detail, and they talk about the constraints, which are omitted here for brevity.  Do your best to solve these on your own first before you read the explanations or solutions!
+
+Consider the type of problem and which approach would work best (e.g. DFS, Dijkstra's algorithm).
+
+- **Find the celebrity:** [LeetCode](https://leetcode.com/problems/find-the-celebrity/)
+- **Number of islands:** [LeetCode](https://leetcode.com/problems/number-of-islands/)
+- **Cheapest flights within K stops:** [LeetCode](https://leetcode.com/problems/cheapest-flights-within-k-stops/)
+- **Minimum cost to connect all points:** [LeetCode](https://leetcode.com/problems/min-cost-to-connect-all-points/)
+- **Network delay time:** [LeetCode](https://leetcode.com/problems/network-delay-time/)
+- **Max area of island:** [LeetCode](https://leetcode.com/problems/max-area-of-island/)
+- **Course schedule:** [LeetCode](https://leetcode.com/problems/course-schedule/)
+- **Minimum edge reversals so every node is reachable:** [LeetCode](https://leetcode.com/problems/minimum-edge-reversals-so-every-node-is-reachable/)
 
 
 ## References and extra information
