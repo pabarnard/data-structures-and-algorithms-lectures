@@ -304,9 +304,6 @@ In **Kruskal's algorithm** you begin by taking the edges and sorting them by the
 
 Kruskal's algorithm is usually a little faster than Prim's algorithm, although it will depend on how the graph is represented and what additional data structures are used (e.g. sets, priority queues).
 
-## When to use each type of graph
-
-
 ## Practice problems
 Do not try to solve all these at once.  Focus on one at a time, and take it slowly.  Make sure you understand the problem, the constraints, the inputs and outputs, and feel comfortable experimenting.  In an interview setting, you will be asked to explain your solution, so talk it out!
 
@@ -322,7 +319,6 @@ Consider the type of problem and which approach would work best (e.g. DFS, Dijks
 - **Max area of island:** [LeetCode](https://leetcode.com/problems/max-area-of-island/)
 - **Course schedule:** [LeetCode](https://leetcode.com/problems/course-schedule/)
 - **Minimum edge reversals so every node is reachable:** [LeetCode](https://leetcode.com/problems/minimum-edge-reversals-so-every-node-is-reachable/)
-
 
 ## References and extra information
 - *Introduction to Algorithms* by Thomas Cormen, Charles Leiserson, Ronald Rivest, Clifford Stein
