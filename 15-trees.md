@@ -34,6 +34,10 @@ You'll hear other common terms like *pruning* for removing a portion of the over
 
 Trees are used to save data in such a way so that searching can be done in roughly $O(\log(n))$ time, like information from a database.  Database indexing uses specialized types of trees to accomplish this task.  Trees are also used in machine learning to make decisions - hence the name "decision tree" - based on the data that's fed to the model.  Whenever you see suggestions pop up as you type what you're looking for in your favorite search engine (e.g. Google, Bing), the recommendations come from a tree as well.
 
+WARNING: Be careful if you have duplicate values.  Some implementations of certain types of trees might not allow you to have duplicates, while you can make tweaks in other cases to accommodate them.  For example, you might have a counter to hold the number of instances of a given value or have the node represent another data structure holding the repeated values.
+
+If you use the wrong type of tree, it might not be effective if you save data in a specific way, so be careful.  For example, if you store values into a tree, and you add values in order from smallest to largest, you basically are left with a singly linked list with additional pointers that do nothing, leading to $O(N)$ searches instead of $O(\log(N))$ search time.
+
 ## Types of traversals
 There are four common types of ways to travel through a tree: pre-order traversal, in-order traversal, post-order traversal, and level-order traversal.
 
@@ -67,8 +71,48 @@ A **binary tree** is a tree where each node has anywhere from 0 through 2 childr
 Many algorithm challenges will use binary trees, so it's good to practice working with them!
 
 ## Binary search trees
+A special type of binary tree is a binary search tree.  A **binary search tree (BST)** is a binary tree where values less than the current node are stored to the left and values bigger than the current node are stored to the right.
 
-## Heaps
+Here is an example of a binary search tree (Example 2):
+```
+        15                  Level 0
+       /  \
+      /    \
+    |/_    _\|
+    12       18             Level 1
+   / \        
+  /   \        
+|/_   _\|      
+4       13                  Level 2
+ \
+  \
+  _\|
+    6                       Level 3
+```
+Notice how at the root node 15 all values that are smaller are in the left subtree (12, 4, 13, 6) and the sole value bigger is in the right subtree (18).  When looking at the subtree with the nodes 12, 4, 13, and 6, all values less than 12 are to the left while all values bigger than 12 are to the right.  Notice these 4 nodes are all smaller than 15 in this subtree.
+
+## Heaps (binary heap)
+A **heap** is a data structure with the heap property: in a max heap, the parent's value is bigger than or equal to its children, while in a min heap, the parent is smaller or equal to its children.  Thus in a max heap, the biggest value is at the beginning (root), and in a min heap its smallest value is at the start (root).  For this page, we'll focus on a *binary heap,* which uses a binary tree.  (An alternate implementation of a heap uses an array.)
+
+Heaps are used a lot as a basis for priority queues.  In fact, some languages even call priority queues "heaps", even though they're different data structures.  They're used most frequently when minimum and maximum values need to be saved or extracted frequently.
+
+Note that in a heap, whenever a value is added or removed, the heap property may be violated.  This requires the tree to be re-balanced in order to re-establish the heap property by rearranging nodes or values as needed.  The actual implementation will vary based on the type of heap.  (There are many implementations of heaps, which is beyond the scope of this page, but you can read up on them on your own.  We're going to focus on when and how to use heaps.)
+
+A heap will not necessarily have a specific ordering in terms of insertion or deletion.
+
+Here is a visual of a possible maximum binary heap (Example 3):
+```
+        15                  Level 0
+       /  \
+      /    \
+    |/_    _\|
+    8        10             Level 1
+   / \        
+  /   \        
+|/_   _\|      
+2       6                   Level 2
+```
+Notice how each possible parent node must have a value bigger than or equal to its children in all cases.
 
 ## Tries
 
