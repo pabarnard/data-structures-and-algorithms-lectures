@@ -36,8 +36,8 @@ This repository contains my personal notes when it comes to data structures and 
     - Binary trees
     - Tries
     - Pre-order vs. in-order vs. post-order traversal
-- Bit manipulation
-- System design
+- Bit manipulation (FUTURE)
+- System design (FUTURE)
     - Tradeoffs with memory vs. time
-- Regex (optional)
+- Regex (optional) (FUTURE)
 - General resources for algorithms

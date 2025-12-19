@@ -115,11 +115,93 @@ Here is a visual of a possible maximum binary heap (Example 3):
 Notice how each possible parent node must have a value bigger than or equal to its children in all cases.
 
 ## Tries
+So far in the examples we've seen numbers.  But trees can hold any kind of data.  A special type of tree that can hold characters is a trie (pronounced "try").  A **trie** is a tree where each node holds a single item - usually a single character.  Alternately this is called a *prefix tree*.  Think of prefixes like "pre-", "post-", "in-", "un-", etc. that change the meaning of a word.  Here prefixes in this sense mean the same starting letters.
+
+Here is an illustration of a trie (Example 4):
+```
+            |
+            |
+            |
+            .       Starting point
+           / \
+          /   \
+    -----A     R------
+    |   / \        | |
+    W  C   R----   A E--
+   /|  |\  |\  |   | | |
+  E A  E T E C M   Y D E--
+    |                  | |
+    Y                  L F
+                       |
+                       S
+```
+At the root of the tree there is no character.  From there we can pick a node to travel to next.  From there we construct words from the path traveled.  For example, we can create "REEL", "ARM", "ARE", etc.
+
+Depending on the implementation, some nodes will have a boolean field indicating that the current node is a valid place to stop, even though you can travel farther down.  For example, you could form "REEL" or "REELS".
+
+Tries are used a lot in auto-completions of words and phrases in search engines and in predictive algorithms.
+
+If you have a lot of phrases or words, tries are very useful, but if you don't have a large set, tries will not be so great due to their high memory usage.
 
 ## Balanced trees
+When you use a tree data structure, ensuring that the tree is not heavily tilted in one direction is important to ensure that retrievals can be accomplished in $O(\log(n))$ time as frequently as possible.  These trees should have $O(\log(n))$ height; such a tree is a **balanced tree**.
+
+A **self-balancing tree** is a tree that rebalances itself when nodes are inserted or removed to ensure the height remains $O(\log(n))$ height.
+
+There are many types of balanced tree data structures, each of which has its own implementation and definition of balance.
+
+Named after its inventors, Georgy Adelson-Velsky and Evgenii Landis, an **AVL tree** is a self-balancing binary search tree.  The height of the left and right subtrees cannot differ by more than 1.  When a node is inserted or removed, the tree might be rotated at spots - in other words, left and right subtrees might be required to flip as you retrace, or move up, the tree.
+
+Similar to an AVL tree is a red-black tree.  A **red-black tree** is a self-balancing binary search tree like an AVL tree that satisfies these properties:
+- Each node is assigned a "color": red or black
+- Null nodes are black
+- Red nodes cannot have a red child
+- All paths from one node to a leaf node travel through the same number of black nodes (this is called the starting node's "black height")
+
+For a red-black tree, the path from the root to the leaf node farther away cannot be more than twice the distance of the path from the root to the nearest leaf node.
+
+When a node is added or removed from an AVL tree, the tree rebalances itself by rotating the tree and by recoloring nodes as needed while still meeting the requirements specified in the list up above.  There will not be more than three rotations to rebalance the tree.
+
+AVL trees are stricter with rebalancing height than red-black trees, while adding and removing is faster for red-black trees.  Rebalancing is faster for red-black trees due to requiring fewer rotations.
+
+A more generalized version of a self-balancing binary search tree is the B-tree.  A **B-tree** is a self-balancing tree that allows for multiple children per node.  This allows for smaller heights for the tree because more nodes can be used in each level.  They're used for database indexing and file management.
+
+You likely won't need to worry about implementing self-balancing trees in interviews, but they can come up in system design interviews, so it's a good idea to familiarize yourself with them.
 
 ## Segment trees
+When you need to perform frequent operations like the minimum value, maximum value, or the sum for a specific interval or range of values, especially if the values are in a random order, a segment tree can be useful.  A **segment tree** is a tree data structure where each node holds the minimum, maximum, or a sum, along with the starting and ending points where this value is correct.
+
+Here's an illustration of a segment tree for sums with 0-indexing (Example 5):
+```
+Array: [8, 2, 5, 3, 1, 2]
+
+        20 [0:5]------ 
+        /             \
+      14 [0:2]         6 [3:5] --------
+      /      \            |           |
+  10 [0:1]    5 [2:2]  4 [3:1]     2 [5:5]
+ /        \             /    \
+8 [0:0]   2 [1:1]   3 [3:3]  1[4:4]
+```
+Notice how the overall sum is at the top, and then for each level we break the intervals in roughly half, and repeat the process until each node only holds one value.
+
+Most implementations use a binary tree, but you can have as many children as needed.  Finding any minimum or maximum for any interval requires $O(\log_m(n))$ time, where $m$ is the number of children allowed per node and $n$ is the total number of values.
+
+Building segment trees requires $O(n\log(n))$ time, where $n$ is the number of segments.  These trees take up quite a bit of memory.  But then querying the tree for the minimum, maximum, or sum for any interval requires $O(\log(n) + k)$ time, where $n$ is the number of segments and $k$ is the number of intervals reported.
 
 ## Practice problems
+Do not try to solve all these at once.  Focus on one at a time, and take it slowly.  Make sure you understand the problem, the constraints, the inputs and outputs, and feel comfortable experimenting.  In an interview setting, you will be asked to explain your solution, so talk it out!
 
-## References
+Please check the links out, as they explain the problems in much more detail, and they talk about the constraints, which are omitted here for brevity.  Do your best to solve these on your own first before you read the explanations or solutions!
+
+Consider which type of tree would be most appropriate for the problem.
+
+- **Range sum of BST:** [LeetCode](https://leetcode.com/problems/range-sum-of-bst/)
+- **Longest common prefix:** [LeetCode](https://leetcode.com/problems/longest-common-prefix/)
+- **Validate BST:** [LeetCode](https://leetcode.com/problems/validate-binary-search-tree/)
+- **Reorganize string:** [LeetCode](https://leetcode.com/problems/reorganize-string/)
+- **Word break:** [LeetCode](https://leetcode.com/problems/word-break/)
+- **Lowest common ancestor of a binary tree:** [LeetCode](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/)
+- **Furthest building you can reach:** [LeetCode](https://leetcode.com/problems/furthest-building-you-can-reach/)
+- **Skyline problem:** [LeetCode](https://leetcode.com/problems/the-skyline-problem/)
+- **Vertical order traversal of a binary tree:** [LeetCode](https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/)
