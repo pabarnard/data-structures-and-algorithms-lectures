@@ -1,16 +1,16 @@
 # Introduction to Data Structures and Algorithms
 
-Data structures and algorithms are used every day and you might not realize it.  For example, when you're performing a search online and you see possible queries pop up underneath as you type, like so:
+Every time you use the internet or most smart devices, your interactions are often handled by data structures and algorithms.  The same can be said for any electronic game you play, whether it's through a mobile device or a dedicated console.  For example, when you're performing a search online and you see possible queries pop up underneath as you type, like so:
 
 ![Image of a search typed mid-way with various possible results underneath](search-image.png)
 
-Those results are saved in a data structure, very likely a trie.  (You'll learn about a trie down the road.)
+Those results are saved in a data structure, which in this case is likely a trie.  (You'll learn about the trie data structure when we cover trees.)
 
-When you submit a form to log in, a series of steps - or algorithms - are followed in order to process it and then authorize you to enter the site.  Algorithms are a series of steps are followed to usually process data and/or obtain a result.
+When you submit a form to log in or register, a series of steps - or algorithms - are followed in order to process it and then authorize you to enter the site.  **Algorithms** are a series of steps are followed to usually process data and/or obtain a result.
 
-This tutorial is meant to give you the tools to think about a problem, break down with the steps required to tackle it, and express your ideas to others who want to understand your thought process.  It will also talk about various tradeoffs, especially in regards to system design, where memory may be an issue, or perhaps time is of utmost importance.
+This tutorial is meant to give you the tools to think about a problem, break down with the steps required to tackle it, and express your ideas to others who want to understand your thought process.  It will also talk about various tradeoffs, where memory may be an issue, or perhaps time is of utmost importance.  In system design tradeoffs become critical!
 
-Regardless of if you come from a boot camp, studying to pass a technical assessment, or if you have many years of experience in the industry, mastering data structures and algorithms is crucial to your growth as a developer!
+Regardless of if you seek to learn more as a novice to programming, come from a boot camp, need to pass a technical assessment, or require brushing up even with many years of experience in the industry, mastering data structures and algorithms is crucial to your growth as a developer!
 
 ## Why data structures and algorithms matter
 - **Performance scales with users and data.**  Small inefficiencies are invisible on tiny inputs but become critical when systems serve millions of users or process terabytes of data.  Choosing the right structure or algorithm can mean the difference between a feature that feels instantaneous and one that is unusable.  
@@ -33,7 +33,10 @@ Regardless of if you come from a boot camp, studying to pass a technical assessm
     - Strings
     - Arrays/lists
     - Objects or dictionaries/maps
-- **Comfort writing small programs**: defining functions, calling functions, reading test input, and printing results.  
+- **Comfort writing small programs**:
+    - Defining and calling functions, reading test input
+    - Reading and understanding test input, along with returning results
+    - Basic debugging, like going step by step or printing results
 - **Development tools:**
     - Code editor (like Visual Studio Code or Cursor)
     - Running programs locally from the command line or IDE
