@@ -6,9 +6,9 @@ This repository contains my personal notes when it comes to data structures and 
 - Intro to data structures and algorithms (with prerequisites and tips)
 - Big O notation
 - Tips for interviews
-- Strings
 - Arrays
     - Two- and multi-dimensional arrays (matrices)
+- Strings
 - Data
     - Accessing it
     - Immutable vs. mutable data
